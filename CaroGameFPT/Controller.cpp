@@ -90,9 +90,11 @@ void  Controller::runProgram()
 		else if (coor_mouse.Y == 0 && (coor_mouse.X > 12 && coor_mouse.X < 19))
 		{
 			saveGame();
-			COORD  topleft = { 0,1 };
-			caroView.clearBoardArea(topleft);// clear screen
-			caroView.gotoxy(0, 5);
+			caroModel.saveData();
+			//COORD  topleft = { 0,1 };
+			//caroView.clearBoardArea(topleft);// clear screen
+			//caroView.gotoxy(0, 5);
+			return;
 			// clear man hinh
 			// tro ve man hinh chinh
 		}
@@ -165,6 +167,7 @@ void  Controller::PlayGame(COORD coor_mouse)
 
 void Controller::saveGame()
 {
+	caroModel.saveData();
 	caroModel.saveGame();
 }
 //void runProgram();

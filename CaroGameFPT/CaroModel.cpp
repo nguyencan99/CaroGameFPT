@@ -283,23 +283,20 @@ void CaroModel::saveData()
     int curTurn = 0;
     fstream database;
     database.open("CaroDatabase.ini", ios::app);
-    map<string, Game>::iterator it;
-    for (it = preGames.begin(); it != preGames.end(); it++) 
-    {
-        it->second.getNamePlayers(name1, name2);
-        it->second.getPlayersSore(score1, score2);
-        curTurn = it->second.getCurrTurn();
 
-        database << "Game ID: " << it->first.c_str()  << "\n";
-        database << "total turn:" << curTurn          << "\n";
-        database << "Player 1:"                       << "\n";
-        database << "Name: "      << name1            << "\n";
-        database << "Score: "     << score1           << "\n";
-        database << "Player 2:"                       << "\n";
-        database << "Name: "      << name2            << "\n";
-        database << "Score: "     << score2           << "\n";
-    }
+    curGame.getNamePlayers(name1, name2);
+    curGame.getPlayersSore(score1, score2);
+    curTurn = curGame.getCurrTurn();
 
+    database << "Game ID: " << curGame.getGameID()<< "\n";
+    database << "total turn: " << curTurn << "\n";
+    database << "Player 1: " << "\n";
+    database << "Name: " << name1 << "\n";
+    database << "Score: " << score1 << "\n";
+    database << "Player 2: " << "\n";
+    database << "Name: " << name2 << "\n";
+    database << "Score: " << score2 << "\n";
+    database.close();
 }
 
 

@@ -37,6 +37,6 @@ void player::setPlayerInfor()
 
 void player::displayPlayerInfo()
 {
-    cout << "Name: " << playerName  << endl;
-    cout << "Score"  << score       << endl;
+    cout << "Name: "    << playerName  << endl;
+    cout << "Score: "   << score       << endl;
 }
